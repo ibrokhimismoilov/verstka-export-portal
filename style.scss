@@ -1,0 +1,332 @@
+*::after,
+*::before,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+}
+
+.auto-container {
+  max-width: 1368px;
+  width: 100%;
+  padding: 28px 36px 28px 27px;
+  margin: 0 auto;
+  &_blue {
+    background: #f2fbfe;
+  }
+  @media (max-width: 991px) {
+    padding: 15px;
+  }
+}
+
+.reestr-card {
+  max-width: 1305px;
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  margin-bottom: 10px;
+
+  &__header {
+    padding: 8px 27px;
+    border-bottom: 1px solid #bcd1d7;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    @media (max-width: 991px) {
+      padding: 10px 15px;
+    }
+    &-item {
+      padding-top: 3px;
+      padding-bottom: 3px;
+      max-width: 150px;
+      width: max-content;
+      margin-right: 50px;
+      margin-bottom: 10px;
+      @media (max-width: 991px) {
+        max-width: 200px;
+      }
+
+      &:last-child {
+        min-width: initial;
+        max-width: 350px;
+        width: 100%;
+
+        @media (max-width: 991px) {
+          max-width: 200px;
+        }
+      }
+    }
+
+    &-label,
+    &-text {
+      font-family: Manrope, sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 20px;
+      color: #003a53;
+      display: block;
+    }
+
+    &-label {
+      margin-bottom: 2px;
+      font-weight: 400;
+      color: #989898;
+      display: block;
+    }
+  }
+
+  &__main {
+    padding: 12px 21px;
+    display: flex;
+    width: 100%;
+
+    @media (max-width: 991px) {
+      padding: 10px 15px;
+      flex-direction: column;
+    }
+
+    &-left {
+      margin-right: 10px;
+      width: 100%;
+      @media (max-width: 991px) {
+        margin-right: 0;
+      }
+    }
+    &-right {
+      width: 100%;
+      margin-left: 10px;
+      @media (max-width: 991px) {
+        margin-left: 0;
+      }
+    }
+
+    &-item {
+      padding-top: 3px;
+      padding-bottom: 3px;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    &-label,
+    &-text {
+      font-family: Manrope, sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 20px;
+      color: #003a53;
+      display: block;
+    }
+
+    &-label {
+      margin-bottom: 2px;
+      font-weight: 400;
+      color: #989898;
+    }
+  }
+}
+
+// calc-compensation
+
+.calc-compensation {
+  position: relative;
+  padding: 32px 40px;
+  background: #f8f8f8;
+
+  @media (max-width: 991px) {
+    padding: 32px 15px;
+  }
+
+  &__remove {
+    position: absolute;
+    top: 13px;
+    right: 17px;
+    display: flex;
+    cursor: pointer;
+
+    img {
+      width: 13px;
+      height: 13px;
+      margin-top: 3px;
+      margin-right: 3px;
+      object-fit: contain;
+      object-position: center center;
+      transition: all 0.3s ease-in-out;
+    }
+
+    span {
+      transition: all 0.3s ease-in-out;
+      font-family: Manrope, sans-serif;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 19px;
+      color: #003a53;
+    }
+
+    &:hover {
+      img {
+        transform: translateX(-10px);
+      }
+      span {
+        color: #000;
+      }
+    }
+  }
+}
+
+.btn-add {
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    padding: 7px 0;
+
+    &_right {
+      justify-content: flex-end;
+    }
+
+    &_left {
+      justify-content: flex-start;
+    }
+
+    &_center {
+      justify-content: center;
+    }
+  }
+
+  &-calc-compensation {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none !important;
+    transition: all 0.3s ease-in-out;
+    font-family: Manrope, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #00b3ff;
+
+    &::before {
+      padding: 0;
+      content: "+";
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      border-radius: 50%;
+      margin-right: 5px;
+      font-weight: bold;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #00b3ff;
+      color: #fff !important;
+      transition: all 0.4s ease-in-out;
+    }
+
+    &:hover::before {
+      transform: translateX(-10px);
+    }
+  }
+}
+
+// sidebar-compensation
+
+.sidebar-compensation {
+  &__info {
+    max-width: 374px;
+    width: 100%;
+    padding: 30px 40px;
+    background: #f2fbfe;
+
+    ::-webkit-scrollbar {
+      background: #fff;
+      height: 5px;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #003a53;
+      height: 5px;
+      border-radius: 3px;
+    }
+
+    @media (max-width: 991px) {
+      padding: 15px;
+    }
+
+    &-desc {
+      font-family: Manrope, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 21px;
+      color: #003a53;
+      margin-bottom: 29px;
+    }
+
+    &-price {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: #fff;
+      padding: 24px 30px;
+      margin-bottom: 12px;
+      overflow-x: auto;
+
+      h1 {
+        text-align: center;
+        font-family: Manrope, sans-serif;
+        font-weight: 300;
+        font-size: 50px;
+        line-height: 68px;
+        color: #0989fa;
+
+        @media (max-width: 991px) {
+          font-size: 32px;
+          line-height: 1.2;
+        }
+      }
+
+      span {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        text-transform: uppercase;
+        font-family: Manrope, sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 21px;
+        line-height: 29px;
+        text-align: center;
+        color: #39a1ff;
+
+        @media (max-width: 991px) {
+          font-size: 16px;
+          line-height: 1.2;
+        }
+      }
+    }
+
+    &-link {
+      text-decoration: none;
+      font-family: Manrope, sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #0989fa;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
