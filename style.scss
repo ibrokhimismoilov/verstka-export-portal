@@ -6,6 +6,47 @@
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 4px;
+  height: 8px;
+  background: rgba(#000, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  height: 8px;
+  width: 8px;
+  border-radius: 4px;
+  animation: animScrollThumb 5s linear infinite alternate forwards;
+  -o-animation: animScrollThumb 5s linear infinite alternate forwards;
+  -ms-animation: animScrollThumb 5s linear infinite alternate forwards;
+  -moz-animation: animScrollThumb 5s linear infinite alternate forwards;
+  -webkit-animation: animScrollThumb 5s linear infinite alternate forwards;
+  background-size: 1000% 1000%;
+  background-image: linear-gradient(
+    45deg,
+    #00b3ff,
+    #18de54,
+    #00b3ff,
+    #18de54,
+    #00b3ff,
+    #18de54,
+    #00b3ff,
+    #18de54,
+    #00b3ff,
+    #18de54
+  );
+}
+
+@keyframes animScrollThumb {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 900% 900%;
+  }
+}
+
 body {
   min-width: 320px;
 }
@@ -13,9 +54,9 @@ body {
 .auto-container {
   max-width: 1368px;
   width: 100%;
-  padding: 28px 36px 28px 27px;
   margin: 0 auto;
   &_blue {
+    padding: 28px 36px 28px 27px;
     background: #f2fbfe;
   }
   @media (max-width: 991px) {
@@ -180,7 +221,7 @@ body {
   }
 }
 
-.btn-add {
+.btn {
   &__wrapper {
     width: 100%;
     display: flex;
@@ -199,7 +240,7 @@ body {
     }
   }
 
-  &-calc-compensation {
+  &-add-calc-compensation {
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -233,6 +274,44 @@ body {
 
     &:hover::before {
       transform: translateX(-10px);
+    }
+  }
+
+  &-download {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none !important;
+
+    &,
+    span {
+      font-family: Manrope, sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #000000;
+      transition: color 0.3s ease-out;
+    }
+
+    img {
+      margin-right: 10px;
+      width: 20px;
+      height: 24px;
+      object-fit: contain;
+      object-position: center center;
+      transition: transform 0.3s ease-out;
+    }
+
+    &:hover {
+      &,
+      span {
+        color: #39a1ff;
+      }
+      img {
+        transform: translateX(-10px);
+      }
     }
   }
 }
@@ -326,6 +405,243 @@ body {
 
       &:hover {
         text-decoration: underline;
+      }
+    }
+  }
+}
+
+// trade-statistics-table
+
+.trade-statistics-table {
+  background: #fff;
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 767px;
+  margin-bottom: 30px;
+
+  &__title {
+    padding-top: 4px;
+    font-family: Manrope, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1;
+    text-align: left;
+    text-transform: uppercase;
+    color: #ffffff;
+
+    @media (max-width: 1199px) {
+      font-size: 18px;
+    }
+  }
+
+  &__sort {
+    position: relative;
+    padding-right: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+
+    &:hover,
+    &.sorted {
+      &::after {
+        transform: translateY(0%) rotate(-225deg);
+      }
+    }
+
+    &:hover {
+      color: rgba(#fff, 0.9);
+
+      &::after {
+        border-color: rgba(#fff, 0.9);
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 40%;
+      width: 7px;
+      height: 7px;
+      border: 1px solid #fff;
+      border-top: 0;
+      border-right: 0;
+      display: block;
+      transform: translateY(-50%) rotate(-45deg);
+      transition: transform 0.3s linear;
+    }
+  }
+
+  &.hovered {
+    tbody {
+      tr {
+        cursor: pointer;
+        &:hover {
+          background: darken(#f2fbfe, 10%);
+        }
+      }
+    }
+  }
+
+  &__outer {
+    overflow-y: auto;
+  }
+
+  thead {
+    background: radial-gradient(
+      159.21% 4125.1% at -18.89% -35.53%,
+      #00b3ff 0%,
+      #18de54 100%
+    );
+
+    tr {
+      &:nth-child(1) {
+        th {
+          padding: 12px 29px;
+
+          @media (max-width: 1199px) {
+            padding: 8px 15px;
+          }
+        }
+      }
+      &:nth-child(2) {
+        background: rgba(0, 58, 83, 0.21);
+        th {
+          padding: 10px;
+          font-family: Manrope, sans-serif;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 1.5;
+          color: #ffffff;
+          text-align: left;
+
+          @media (max-width: 1199px) {
+            font-size: 14px;
+            padding: 8px;
+          }
+
+          &:first-child {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      cursor: pointer;
+      &:nth-child(2n-1) {
+        background: #f2fbfe;
+      }
+
+      td {
+        padding: 10px;
+        font-family: Manrope, sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: left;
+        color: #003a53;
+
+        @media (max-width: 1199px) {
+          font-size: 14px;
+          padding: 8px;
+        }
+
+        &:first-child {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.helpful-btns {
+  background: rgba(#eaf4ed, 0.6);
+  padding: 15px;
+
+  &__inner {
+    padding: 12px 35px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: rgba(#fff, 0.6);
+
+    @media (max-width: 1199px) {
+      padding: 15px;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__desc {
+    font-family: Manrope, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: left;
+    color: #000000;
+    margin-right: 21px;
+  }
+
+  &__wrapper {
+    display: flex;
+    border-right: 1px solid #4aa967;
+    border: 1px solid #4aa967;
+    & > div {
+      width: 74px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.3s ease-out;
+      svg {
+        width: 19px;
+        height: 18px;
+      }
+      span {
+        font-family: Manrope, sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        color: #000;
+      }
+    }
+  }
+
+  &__like {
+    border-right: 1px solid #4aa967;
+
+    span {
+      margin-right: 7px;
+    }
+    &:hover {
+      background: rgba(green, 0.1);
+    }
+    &:active,
+    &.clicked {
+      svg path {
+        fill: green;
+      }
+    }
+  }
+
+  &__dislike {
+    span {
+      margin-left: 7px;
+    }
+    &:hover {
+      background: rgba(red, 0.1);
+    }
+    &:active,
+    &.clicked {
+      svg path {
+        fill: red;
       }
     }
   }
