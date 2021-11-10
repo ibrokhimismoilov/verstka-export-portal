@@ -1048,17 +1048,24 @@ body {
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-size: 14px;
+  line-height: 1;
+  font-family: sans-serif;
 }
 
 .eye-settings__speak-input + span {
   display: inline-block;
   position: relative;
-  height: 20px;
-  width: 20px;
+  height: 16px;
+  width: 16px;
   border-radius: 4px;
   border: 1px solid rgba(23, 31, 38, 0.2);
   background: #fff;
-  margin-right: 10px;
+  margin-right: 7px;
 }
 
 .eye-settings__speak-input + span::after {
@@ -1067,8 +1074,8 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  height: 7px;
-  width: 15px;
+  height: 6px;
+  width: 12px;
   border: 1px solid #00a2e0;
   border-top: 0;
   border-right: 0;

@@ -888,17 +888,20 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
-
+    user-select: none;
+    font-size: 14px;
+    line-height: 1;
+    font-family: sans-serif;
     &-input {
       & + span {
         display: inline-block;
         position: relative;
-        height: 20px;
-        width: 20px;
+        height: 16px;
+        width: 16px;
         border-radius: 4px;
         border: 1px solid rgba(23, 31, 38, 0.2);
         background: #fff;
-        margin-right: 10px;
+        margin-right: 7px;
 
         &::after {
           z-index: 1;
@@ -906,8 +909,8 @@ body {
           position: absolute;
           left: 50%;
           top: 50%;
-          height: 7px;
-          width: 15px;
+          height: 6px;
+          width: 12px;
           border: 1px solid rgb(0, 162, 224);
           border-top: 0;
           border-right: 0;
