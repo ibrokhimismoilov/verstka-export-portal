@@ -787,7 +787,6 @@ body {
 }
 
 .eye-settings__dropdown {
-  z-index: -1;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -865,6 +864,10 @@ body {
   text-transform: lowercase;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
+  -webkit-user-select: auto;
+     -moz-user-select: auto;
+      -ms-user-select: auto;
+          user-select: auto;
 }
 
 .eye-settings__clear:hover {
@@ -962,7 +965,7 @@ body {
 
 .eye-settings__view-item:nth-child(4) {
   background-color: #fff;
-  border-color: #5e9db6;
+  border-color: #00a2e0;
 }
 
 .eye-settings__view-item:nth-child(4).no-image {
@@ -973,11 +976,11 @@ body {
   content: "";
   top: 50%;
   left: 50%;
-  width: 1px;
+  width: 2px;
   height: 30px;
   z-index: 1px;
   position: absolute;
-  background: #000;
+  background: #00a2e0;
   -webkit-transform: translate(-50%, -50%) rotate(-45deg);
           transform: translate(-50%, -50%) rotate(-45deg);
 }
